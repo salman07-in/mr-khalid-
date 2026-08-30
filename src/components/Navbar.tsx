@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ExternalLink } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
+import { getAssetUrl } from '../utils/assetHelper';
 
 interface NavbarProps {
   activeSection: string;
@@ -9,13 +10,13 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [profileImg, setProfileImg] = useState<string>(() => {
-    return localStorage.getItem('khalid_profile_custom_image') || PERSONAL_INFO.profileImage || '/khalid-photo.jpg';
+    return localStorage.getItem('khalid_profile_custom_image') || PERSONAL_INFO.profileImage || getAssetUrl('khalid-photo.jpg');
   });
 
   useEffect(() => {
     const handleProfileUpdate = () => {
       const saved = localStorage.getItem('khalid_profile_custom_image');
-      setProfileImg(saved || PERSONAL_INFO.profileImage || '/khalid-photo.jpg');
+      setProfileImg(saved || PERSONAL_INFO.profileImage || getAssetUrl('khalid-photo.jpg'));
     };
     window.addEventListener('profile_image_updated', handleProfileUpdate);
     return () => {

@@ -7,6 +7,7 @@ import {
   RecognitionItem,
   EducationItem,
 } from '../types';
+import { getAssetUrl } from '../utils/assetHelper';
 
 export const PERSONAL_INFO = {
   name: 'Khalid Khan',
@@ -16,7 +17,7 @@ export const PERSONAL_INFO = {
   company: 'GE Vernova',
   email: 'khan.khalid@gmail.com',
   linkedIn: 'https://www.linkedin.com/in/khalid2k1/',
-  profileImage: '/khalid-photo.jpg',
+  profileImage: getAssetUrl('khalid-photo.jpg'),
   headline: 'Khalid Khan, CEng',
   subheadline: 'Senior Systems Engineering Manager',
   supportingText: 'Systems Engineering • MBSE • Model-Based Design • Safety-Critical Systems',

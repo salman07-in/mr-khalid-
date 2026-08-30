@@ -1,6 +1,7 @@
 import React from 'react';
 import { ShieldCheck, Award, Building2, User } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
+import { getAssetUrl } from '../utils/assetHelper';
 
 interface PortraitVisualProps {
   className?: string;
@@ -8,7 +9,7 @@ interface PortraitVisualProps {
 }
 
 export const PortraitVisual: React.FC<PortraitVisualProps> = ({ className = '' }) => {
-  const photoSrc = PERSONAL_INFO.profileImage || '/khalid-photo.jpg';
+  const photoSrc = PERSONAL_INFO.profileImage || getAssetUrl('khalid-photo.jpg');
 
   return (
     <div className={`relative w-full max-w-lg mx-auto ${className}`}>
